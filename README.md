@@ -33,6 +33,8 @@ const elapsed = now >= start ? now - start : 0;
 
 After a reboot you cannot know how much time passed, so the safe choice for a lockout is to count none of it and save the new reading.
 
+A higher reading does not prove there was no reboot. Across a reboot the difference comes out shorter than the real time, never longer. That is fine for lockouts and cooldowns, but do not use it for things that must expire on time, like sessions.
+
 ## API
 
 <docgen-index>
@@ -55,9 +57,11 @@ Read the elapsed clock.
 
 On Android and iOS the value is the time since the device booted. It
 keeps counting while the device sleeps, and changing the date, time or
-time zone does not move it. It goes back to zero on reboot, so only
-compare readings taken in the same boot. A reading lower than one you
-saved means the device rebooted in between.
+time zone does not move it. It goes back to zero on reboot. A reading
+lower than one you saved means the device rebooted in between. A higher
+reading does not prove there was no reboot: across a reboot the
+difference comes out shorter than the real time, never longer. That is
+safe for lockouts and cooldowns, not for things that must expire on time.
 
 On web it is `performance.now()`, which starts again on every page load
 and may not count while the device sleeps.
