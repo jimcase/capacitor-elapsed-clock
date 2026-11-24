@@ -3,7 +3,7 @@ import PackageDescription
 
 let package = Package(
     name: "CapacitorElapsedClock",
-    platforms: [.iOS(.v15)],
+    platforms: [.iOS(.v14)],
     products: [
         .library(
             name: "CapacitorElapsedClock",
