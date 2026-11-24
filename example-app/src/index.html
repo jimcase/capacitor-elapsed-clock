@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Elapsed Clock</title>
+    <meta
+      name="viewport"
+      content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="format-detection" content="telephone=no" />
+    <style>
+      body {
+        font-family: -apple-system, system-ui, sans-serif;
+        padding: env(safe-area-inset-top) 16px 16px;
+      }
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+      th,
+      td {
+        border-bottom: 1px solid #ccc;
+        padding: 8px 4px;
+        text-align: left;
+        font-variant-numeric: tabular-nums;
+      }
+      button {
+        font-size: 18px;
+        padding: 12px 24px;
+        margin: 16px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Elapsed Clock</h1>
+      <p>
+        Tap Read, lock the phone or change the clock, then tap Read again. The plugin delta should match the
+        Date.now() delta unless the clock was changed.
+      </p>
+      <button id="read">Read</button>
+      <table>
+        <thead>
+          <tr>
+            <th>Clock</th>
+            <th>Value (ms)</th>
+            <th>Delta (s)</th>
+          </tr>
+        </thead>
+        <tbody id="rows"></tbody>
+      </table>
+      <p id="error"></p>
+    </main>
+
+    <script src="./js/example.js" type="module"></script>
+  </body>
+</html>
