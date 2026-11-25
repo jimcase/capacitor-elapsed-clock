@@ -1,6 +1,6 @@
 {
   "name": "capacitor-elapsed-clock",
-  "version": "0.1.0",
+  "version": "8.0.0",
   "description": "Device clock that keeps counting while the phone sleeps and that the user cannot change",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",
@@ -67,7 +67,7 @@
     "typescript": "^5.9.3"
   },
   "peerDependencies": {
-    "@capacitor/core": ">=7.0.0 <9.0.0"
+    "@capacitor/core": "^8.0.0"
   },
   "prettier": "@ionic/prettier-config",
   "swiftlint": "@ionic/swiftlint-config",

@@ -12,16 +12,24 @@ The [example app](https://github.com/jimcase/capacitor-elapsed-clock/tree/main/e
 | iOS      | `clock_gettime_nsec_np(CLOCK_MONOTONIC_RAW)` (same as `mach_continuous_time`) | yes | on reboot |
 | Web      | `performance.now()` | not always | on page load |
 
-Works with Capacitor 7 and 8, on Android and on iOS with CocoaPods or Swift Package Manager.
-
-Checked on a Samsung Galaxy A57 (Android 17) and an iPhone 16 (iOS 27.2). Locked and asleep for 15 to 30 minutes, `ElapsedClock.now()` matched the real time while `performance.now()` fell behind by up to 13 minutes. With the clock moved one hour, `ElapsedClock.now()` did not move.
+Checked on a Samsung Galaxy A57 (Android 17) and an iPhone 16 (iOS 27.2), with the Capacitor 7 example app. Locked and asleep for 15 to 30 minutes, `ElapsedClock.now()` matched the real time while `performance.now()` fell behind by up to 13 minutes. With the clock moved one hour, `ElapsedClock.now()` did not move.
 
 ## Install
 
+Install the line that matches your Capacitor major, then sync:
+
+| Capacitor | Plugin line | npm |
+|---|---|---|
+| 8 | `8.x` | `npm i capacitor-elapsed-clock@latest` |
+| 7 | `7.x` | `npm i capacitor-elapsed-clock@cap7` |
+
+The `latest` tag is the Capacitor 8 line and `cap7` the Capacitor 7 line. Both lines have the same native code. The peer dependency pins the Capacitor major, so npm reports a peer conflict when they do not match.
+
 ```bash
-npm install capacitor-elapsed-clock
 npx cap sync
 ```
+
+No permissions and no setup. iOS 14 or later, with CocoaPods or Swift Package Manager (`npx cap sync` uses whichever your app is set up for). Android `minSdk` 23 or later.
 
 ## Usage
 
@@ -74,7 +82,7 @@ and may not count while the device sleeps.
 
 **Returns:** <code>Promise&lt;<a href="#nowresult">NowResult</a>&gt;</code>
 
-**Since:** 0.1.0
+**Since:** 8.0.0
 
 --------------------
 
@@ -86,6 +94,6 @@ and may not count while the device sleeps.
 
 | Prop        | Type                | Description                                                             | Since |
 | ----------- | ------------------- | ----------------------------------------------------------------------- | ----- |
-| **`value`** | <code>number</code> | Milliseconds since an arbitrary point (device boot on Android and iOS). | 0.1.0 |
+| **`value`** | <code>number</code> | Milliseconds since an arbitrary point (device boot on Android and iOS). | 8.0.0 |
 
 </docgen-api>

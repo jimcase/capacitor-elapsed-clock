@@ -13,7 +13,7 @@ export interface ElapsedClockPlugin {
    * On web it is `performance.now()`, which starts again on every page load
    * and may not count while the device sleeps.
    *
-   * @since 0.1.0
+   * @since 8.0.0
    */
   now(): Promise<NowResult>;
 }
@@ -22,7 +22,7 @@ export interface NowResult {
   /**
    * Milliseconds since an arbitrary point (device boot on Android and iOS).
    *
-   * @since 0.1.0
+   * @since 8.0.0
    */
   value: number;
 }
