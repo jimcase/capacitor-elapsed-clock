@@ -2,9 +2,9 @@
 
 A Capacitor plugin that reads the device elapsed clock: the time since boot, counting while the phone sleeps. The user cannot move it by changing the date or time, so it works for things like lockouts and cooldowns that must not end early when someone sets the clock forward.
 
-<img src="assets/example-app.png" width="320" alt="Example app after moving the phone clock forward one hour">
+<img src="https://raw.githubusercontent.com/jimcase/capacitor-elapsed-clock/main/assets/example-app.png" width="320" alt="Example app after moving the phone clock forward one hour">
 
-The [example app](example-app) on a Samsung Galaxy A57, after moving the phone clock forward one hour between two reads: `Date.now()` jumped an hour, `ElapsedClock.now()` only counted the 22.5 real seconds.
+The [example app](https://github.com/jimcase/capacitor-elapsed-clock/tree/main/example-app) on a Samsung Galaxy A57, after moving the phone clock forward one hour between two reads: `Date.now()` jumped an hour, `ElapsedClock.now()` only counted the 22.5 real seconds. The phone stayed awake, so `performance.now()` matches here too.
 
 | Platform | Clock | Counts sleep | Resets |
 | -------- | ----- | ------------ | ------ |
@@ -12,7 +12,9 @@ The [example app](example-app) on a Samsung Galaxy A57, after moving the phone c
 | iOS      | `clock_gettime_nsec_np(CLOCK_MONOTONIC_RAW)` (same as `mach_continuous_time`) | yes | on reboot |
 | Web      | `performance.now()` | not always | on page load |
 
-Works with Capacitor 7 and 8.
+Works with Capacitor 7 and 8, on Android and on iOS with CocoaPods or Swift Package Manager.
+
+Checked on a Samsung Galaxy A57 (Android 17) and an iPhone 16 (iOS 27.2). Locked and asleep for 15 to 30 minutes, `ElapsedClock.now()` matched the real time while `performance.now()` fell behind by up to 13 minutes. With the clock moved one hour, `ElapsedClock.now()` did not move.
 
 ## Install
 
