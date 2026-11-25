@@ -1,6 +1,6 @@
 # Example app
 
-Capacitor 7 app to check the plugin on a real device.
+Capacitor 8 app to check the plugin on a real device.
 
 On a fresh clone, run `npm install` and `npm run build` in the repo root first. Then:
 
