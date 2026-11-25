@@ -20,6 +20,7 @@
     "type": "git",
     "url": "git+https://github.com/jimcase/capacitor-elapsed-clock.git"
   },
+  "homepage": "https://github.com/jimcase/capacitor-elapsed-clock#readme",
   "bugs": {
     "url": "https://github.com/jimcase/capacitor-elapsed-clock/issues"
   },
