@@ -2,6 +2,10 @@
 
 A Capacitor plugin that reads the device elapsed clock: the time since boot, counting while the phone sleeps. The user cannot move it by changing the date or time, so it works for things like lockouts and cooldowns that must not end early when someone sets the clock forward.
 
+<img src="assets/example-app.png" width="320" alt="Example app after moving the phone clock forward one hour">
+
+The [example app](example-app) on a Samsung Galaxy A57, after moving the phone clock forward one hour between two reads: `Date.now()` jumped an hour, `ElapsedClock.now()` only counted the 22.5 real seconds.
+
 | Platform | Clock | Counts sleep | Resets |
 | -------- | ----- | ------------ | ------ |
 | Android  | `SystemClock.elapsedRealtime()` | yes | on reboot |
